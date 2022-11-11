@@ -1,11 +1,31 @@
 html {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrUdFl--7MP_NxLlNXUtfaWvdIl-7Vyk51dQ&usqp=CAU");
+    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrUdFl--7MP_NxLlNXUtfaWvdIl-7Vyk51dQ&usqp=CAU");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+    background-color: gray;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#extras {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 400px;
+    border: solid black 1px;
+}
+
+canvas {
+    border: solid black 1px;
+    margin-top: 15px;
+    box-shadow: 0px 0px 50px cornflowerblue;
+}
 
 /* 
 table {
@@ -24,16 +44,7 @@ tr td {
 }
  */
 
- canvas {
-    /* display: flex; */
-    border: solid red 1px;
-    background-image: url("https://motionarray.imgix.net/preview-615279-xmeujFgDnE-high_0005.jpg?w=660&q=60&fit=max&auto=format");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    margin: 0px;
-    padding: 0px;
-}
+
 
 /* does this change */
+/* and what about this? */

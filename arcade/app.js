@@ -27,7 +27,7 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 // gets the context from that HTML element and renders it for 2d drawing
 
-const box = 20;
+const box = 32;
 // sets the unit size for the drawing area
 
 let score = 0;
@@ -46,8 +46,8 @@ worm[0] = {
 } 
 // the first value in the snake array, let it start at (15,14) boxes
 let spice = {
-    x: Math.floor(Math.random() * 30 * box),
-    y: Math.floor(Math.random() * 28 * box)
+    x: Math.floor(Math.random() * 20 * box),
+    y: Math.floor(Math.random() * 19 * box)
 }
 
 // control the snake, add event listener for keys being clicked, it will give the direction
@@ -91,7 +91,7 @@ function draw() {
         context.fillStyle = (i === 0)? "brown" : "black";
         context.fillRect(worm[i].x, worm[i].y, box, box);
     }
-        context.drawImage(spiceImg, spice.x, spice.y);
+        context.drawImage(spiceImg, spice.x, spice.y, box, box);
 
         // get the old head of the worm, the first position
         let wormX = worm[0].x;
