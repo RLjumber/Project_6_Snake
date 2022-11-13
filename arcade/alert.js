@@ -1,1 +1,3 @@
-alert("It's Snake... but DUNE.")
+// alert("It's Snake...");
+
+console.log(this);
