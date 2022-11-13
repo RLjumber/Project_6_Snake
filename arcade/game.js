@@ -13,8 +13,8 @@ const resetButton = document.getElementById("resetButton");
     let headX = 10;
     let headY = 9;
 
-   const snakeBody = [];
-    
+    const snakeBody = [0,0];
+    // for some reason when this is set to an empty array the snake only grows after eating two food items
 
     let directionX = 0;
     let directionY = 0;
@@ -26,15 +26,38 @@ const resetButton = document.getElementById("resetButton");
     let speed = 5;
     let score = 0;
 
+    let gameOver = false;
+
+function checkIfOver() {
+    if (headX < 0 || headY < 0 || headX > squareCount - 1 || headY > squareCount - 1) {
+        gameOver = true;
+        alert("game over");
+    } 
+// THIS IS GIVING ME TROUBLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// maybe I can change it to if there are 3 on this square the ngame over, because asking if the head is equal to the body will always be true at some point based on how our snake moves back to front
+    // for (let i = 0; i < snakeBody.length; ++i) {
+    //     if (headX == snakeBody[i][0] && headY == snakeBody[i][1]) {
+    //         gameOver = true;
+    //         alert("GAME OVER! - you ran into yourself")
+    //     }
+    // }
+}
+
 // this function runs the game and calls all our other functions
 function runGame() {
+
+    if (gameOver) {
+        return;
+    }
     
     drawBoard();
     moveSnake();
     checkIfAte();
     drawSnake();
     drawFood();
-
+    checkIfOver();
+    increaseSpeed();
+   
 
 // eventually will need a clear game function that clears the board, but keeps your highest score saved. so we do not refresh the page
     setTimeout(runGame, 1000/speed);
@@ -58,6 +81,13 @@ function drawSnake() {
 function moveSnake() {
     headX = headX + directionX;
     headY = headY + directionY;
+
+    for (let i = snakeBody.length - 1; i > 0; --i) {
+        snakeBody[i] = snakeBody[i - 1];
+    }
+    if (snakeBody.length) {
+        snakeBody[0] = [headX, headY];
+    }
 }
 
 // the keydown events
@@ -112,7 +142,7 @@ function checkIfAte() {
     if(foodX === headX && foodY === headY) {
         score++;
         snakeBody.push([foodX, foodY]);
-        console.log(snakeBody, foodX, foodY);
+        // console.log(snakeBody, foodX, foodY);
         
             for (let i = snakeBody.length - 1; i > 0; i--) {
                 snakeBody[i] = snakeBody[i-1];
@@ -130,6 +160,24 @@ function checkIfAte() {
         foodX = Math.floor(Math.random() * squareCount);
         foodY = Math.floor(Math.random() * squareCount);
     }
+
+function increaseSpeed() {
+    if (score > 3) {
+        speed = 6;
+    }
+    if (score > 6) {
+        speed = 8;
+    }
+    if (score > 12) {
+        speed = 11;
+    }
+    if (score > 18) {
+        speed = 14;
+    }
+    if (score > 25) {
+        speed = 17;
+    }
+}
 
 
 function resetBoard() {
