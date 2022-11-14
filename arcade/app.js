@@ -1,4 +1,12 @@
 
+
+
+// ALL OF THIS IS THE FIRST ATTEMPT< I WANTED TI KEEP IT HERE BUT PLEASE DISREGARD AND USE game.js
+
+
+
+
+
 // the function below creates tr and td for the HTML 'table' element; I will try using 
 // a canvas model instead, it seems to have better functionality for a 2d game
 
