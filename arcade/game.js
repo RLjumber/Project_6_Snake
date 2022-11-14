@@ -10,7 +10,7 @@ const ctx = canvas.getContext("2d");
     let headX = 10;
     let headY = 9;
 
-    const snakeBody = [
+    let snakeBody = [
         [0,0]
     ];
     // for some reason when this is set to an empty array the snake only grows after eating two food items
@@ -201,13 +201,19 @@ const currentScore = document.getElementById("currentScore");
 const resetButton = document.getElementById("resetButton");
 const highScore = document.getElementById("highScore");
 
+
 // all this right here aint workin
-resetButton.addEventListener(
-    "click",
-    function() {
-        if (currentScore > highScore) {
+resetButton.addEventListener("click", function() {
+
+        if (currentScore >= highScore) {
+            console.log("click");
             highScore.innerHTML = "High Score: " + score;
+            currentScore.innerHTML = "Current Score: " + 0;
         }
+        randomizeFood();
+        drawBoard();
+        console.log(snakeBody);
+        // drawSnake();
     }
 );
 
