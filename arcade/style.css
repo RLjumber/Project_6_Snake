@@ -8,7 +8,7 @@ html {
 }
 
 * {
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Fragment Mono', monospace;
     color: white;
 }
 
@@ -47,16 +47,17 @@ h1 {
 }
 
 #resetButton {
-    border-radius: 10px;
+    border-radius: 5px;
     border: solid white 1px;
-    padding: 6px;
-    padding-right: 9px;
-    padding-left: 11px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    color: white;
     background-color: rgba(0, 255, 255, 0.541);
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 2px;
+    font-family: 'Fragment Mono', monospace;
+    letter-spacing: 10px;
+    text-align: center;
+    margin: 30px;
+    width: 125px;
 }
 
 button:hover {

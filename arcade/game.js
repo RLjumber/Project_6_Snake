@@ -51,7 +51,7 @@ function checkIfOver() {
         gradient.addColorStop("1.0", "red");
        
         ctx.fillStyle = gradient;
-        ctx.fillText("Game Over!", canvas.width/6, canvas.height/2)
+        ctx.fillText("Game Over!", canvas.width/6, canvas.height/2)        
     }
 }
 
@@ -61,7 +61,7 @@ function runGame() {
     if (gameOver) {
         return;
     }
-    
+
     drawBoard();
     checkIfAte();
     moveSnake();
@@ -70,7 +70,6 @@ function runGame() {
     increaseSpeed(); 
     checkIfOver(); 
 
-// eventually will need a clear game function that clears the board, but keeps your highest score saved. so we do not refresh the page
     setTimeout(runGame, 1000/speed);
     // 1000 milliseconds = 1 sec , 5 times per second here 
 }
@@ -206,13 +205,14 @@ const highScore = document.getElementById("highScore");
 resetButton.addEventListener("click", function() {
 
         if (currentScore >= highScore) {
-            console.log("click");
             highScore.innerHTML = "High Score: " + score;
             currentScore.innerHTML = "Current Score: " + 0;
         }
         randomizeFood();
         drawBoard();
-        console.log(snakeBody);
+        snakeBody = [10,9];
+        console.log(snakeBody, "I was clicked");
+        drawSnake();
         // drawSnake();
     }
 );
