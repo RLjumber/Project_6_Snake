@@ -1,5 +1,5 @@
-# Project_6_Snake
-Project 6 - Arcade
+# Project_7_Snake
+Project 7 - Arcade
 
 Snake ! Use the arrows to navigate your snake and eat apples ! Dont hit the wall ...
 
